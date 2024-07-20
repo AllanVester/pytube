@@ -9,7 +9,7 @@ import warnings
 from typing import Any, Callable, Dict, List, Optional, TypeVar
 from urllib import request
 
-from pytubefix.exceptions import RegexMatchError
+from pytube.exceptions import RegexMatchError
 
 logger = logging.getLogger(__name__)
 
@@ -188,7 +188,7 @@ def setup_logger(level: int = logging.ERROR, log_filename: Optional[str] = None)
     formatter = logging.Formatter(fmt, datefmt=date_fmt)
 
     # https://github.com/pytube/pytube/issues/163
-    logger = logging.getLogger("pytubefix")
+    logger = logging.getLogger("pytube")
     logger.setLevel(level)
 
     stream_handler = logging.StreamHandler()
@@ -304,7 +304,7 @@ def create_mock_html_json(vid_id) -> Dict[str, Any]:
     :return dict data
         Dict used to generate the json.gz file
     """
-    from pytubefix import YouTube
+    from pytube import YouTube
     gzip_filename = f'yt-video-{vid_id}-html.json.gz'
 
     # Get the pytube directory in order to navigate to /tests/mocks

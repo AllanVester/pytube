@@ -5,8 +5,8 @@ Mp3 Download (MPEG-4 AAC audio codec)
 
 **If you want to save in .mp3 just pass the mp3=True parameter**::
 
-        from pytubefix import YouTube
-        from pytubefix.cli import on_progress
+        from pytube import YouTube
+        from pytube.cli import on_progress
          
         url = input("url >")
          

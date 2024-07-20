@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pytubefix documentation build configuration file."""
+"""pytube documentation build configuration file."""
 import os
 import sys
 
@@ -7,7 +7,7 @@ import sphinx_rtd_theme
 
 sys.path.insert(0, os.path.abspath("../"))
 
-from pytubefix import __version__  # noqa
+from pytube import __version__  # noqa
 
 # -- General configuration ------------------------------------------------
 
@@ -35,7 +35,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "pytubefix"
+project = "pytube"
 author = "Juan Bindez"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -118,8 +118,8 @@ latex_elements = {}
 latex_documents = [
     (
         master_doc,
-        "pytubefix.tex",
-        "pytubefix Documentation",
+        "pytube.tex",
+        "pytube Documentation",
         "Juan Bindez",
         "manual",
     ),
@@ -130,7 +130,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, "pytubefix", "pytubefix Documentation", [author], 1,),
+    (master_doc, "pytube", "pytube Documentation", [author], 1,),
 ]
 
 # -- Options for Texinfo output -------------------------------------------
@@ -141,10 +141,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "pytubefix",
-        "pytubefix Documentation",
+        "pytube",
+        "pytube Documentation",
         author,
-        "pytubefix",
+        "pytube",
         "One line description of project.",
         "Miscellaneous",
     ),

@@ -1,10 +1,10 @@
 import datetime
 from unittest import mock
 
-from pytubefix import Playlist
+from pytube import Playlist
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_title(request_get, playlist_long_html):
     request_get.return_value = playlist_long_html
     url = (
@@ -19,7 +19,7 @@ def test_title(request_get, playlist_long_html):
     )
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_init_with_playlist_url(request_get):
     request_get.return_value = ""
     url = (
@@ -30,7 +30,7 @@ def test_init_with_playlist_url(request_get):
     assert playlist.playlist_url == url
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_init_with_watch_url(request_get):
     request_get.return_value = ""
     url = (
@@ -44,7 +44,7 @@ def test_init_with_watch_url(request_get):
     )
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_last_updated(request_get, playlist_long_html):
     expected = datetime.date(2023, 4, 18)
     request_get.return_value = playlist_long_html
@@ -55,7 +55,7 @@ def test_last_updated(request_get, playlist_long_html):
     assert playlist.last_updated == expected
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_video_urls(request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = playlist_html
@@ -77,7 +77,7 @@ def test_video_urls(request_get, playlist_html):
     request_get.assert_called()
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_html(request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = playlist_html
@@ -86,29 +86,29 @@ def test_html(request_get, playlist_html):
     request_get.assert_called()
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_repr(request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = playlist_html
     playlist = Playlist(url).videos
     assert (
-            repr(playlist) == '[<pytubefix.__main__.YouTube object: videoId=ujTCoH21GlA>, '
-                              '<pytubefix.__main__.YouTube object: videoId=45ryDIPHdGg>, '
-                              '<pytubefix.__main__.YouTube object: videoId=1BYu65vLKdA>, '
-                              '<pytubefix.__main__.YouTube object: videoId=3AQ_74xrch8>, '
-                              '<pytubefix.__main__.YouTube object: videoId=ddqQUz9mZaM>, '
-                              '<pytubefix.__main__.YouTube object: videoId=vwLT6bZrHEE>, '
-                              '<pytubefix.__main__.YouTube object: videoId=TQKI0KE-JYY>, '
-                              '<pytubefix.__main__.YouTube object: videoId=dNBvQ38MlT8>, '
-                              '<pytubefix.__main__.YouTube object: videoId=JHxyrMgOUWI>, '
-                              '<pytubefix.__main__.YouTube object: videoId=l2I8NycJMCY>, '
-                              '<pytubefix.__main__.YouTube object: videoId=g1Zbuk1gAfk>, '
-                              '<pytubefix.__main__.YouTube object: videoId=zixd-si9Q-o>]'
+            repr(playlist) == '[<pytube.__main__.YouTube object: videoId=ujTCoH21GlA>, '
+                              '<pytube.__main__.YouTube object: videoId=45ryDIPHdGg>, '
+                              '<pytube.__main__.YouTube object: videoId=1BYu65vLKdA>, '
+                              '<pytube.__main__.YouTube object: videoId=3AQ_74xrch8>, '
+                              '<pytube.__main__.YouTube object: videoId=ddqQUz9mZaM>, '
+                              '<pytube.__main__.YouTube object: videoId=vwLT6bZrHEE>, '
+                              '<pytube.__main__.YouTube object: videoId=TQKI0KE-JYY>, '
+                              '<pytube.__main__.YouTube object: videoId=dNBvQ38MlT8>, '
+                              '<pytube.__main__.YouTube object: videoId=JHxyrMgOUWI>, '
+                              '<pytube.__main__.YouTube object: videoId=l2I8NycJMCY>, '
+                              '<pytube.__main__.YouTube object: videoId=g1Zbuk1gAfk>, '
+                              '<pytube.__main__.YouTube object: videoId=zixd-si9Q-o>]'
     )
     request_get.assert_called()
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_sequence(request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = playlist_html
@@ -117,8 +117,8 @@ def test_sequence(request_get, playlist_html):
     assert len(playlist) == 12
 
 
-@mock.patch("pytubefix.request.get")
-@mock.patch("pytubefix.cli.YouTube.__init__", return_value=None)
+@mock.patch("pytube.request.get")
+@mock.patch("pytube.cli.YouTube.__init__", return_value=None)
 def test_videos(youtube, request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = playlist_html
@@ -127,8 +127,8 @@ def test_videos(youtube, request_get, playlist_html):
     request_get.assert_called()
 
 
-@mock.patch("pytubefix.request.get")
-@mock.patch("pytubefix.cli.YouTube.__init__", return_value=None)
+@mock.patch("pytube.request.get")
+@mock.patch("pytube.cli.YouTube.__init__", return_value=None)
 def test_load_more(youtube, request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.side_effect = [
@@ -140,8 +140,8 @@ def test_load_more(youtube, request_get, playlist_html):
     request_get.assert_called()
 
 
-@mock.patch("pytubefix.request.get")
-@mock.patch("pytubefix.contrib.playlist.install_proxy", return_value=None)
+@mock.patch("pytube.request.get")
+@mock.patch("pytube.contrib.playlist.install_proxy", return_value=None)
 def test_proxy(install_proxy, request_get):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = ""
@@ -149,7 +149,7 @@ def test_proxy(install_proxy, request_get):
     install_proxy.assert_called_with({"http": "things"})
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_trimmed(request_get, playlist_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.return_value = playlist_html
@@ -162,8 +162,8 @@ def test_trimmed(request_get, playlist_html):
     assert request_get.call_count == 1
 
 
-@mock.patch("pytubefix.request.get")
-@mock.patch("pytubefix.request.post")
+@mock.patch("pytube.request.get")
+@mock.patch("pytube.request.post")
 def test_playlist_failed_pagination(request_post, request_get, playlist_long_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.side_effect = [
@@ -189,8 +189,8 @@ def test_playlist_failed_pagination(request_post, request_get, playlist_long_htm
     # ) # noqa
 
 
-@mock.patch("pytubefix.request.get")
-@mock.patch("pytubefix.request.post")
+@mock.patch("pytube.request.get")
+@mock.patch("pytube.request.post")
 def test_playlist_pagination(request_post, request_get, playlist_html, playlist_long_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.side_effect = [
@@ -209,7 +209,7 @@ def test_playlist_pagination(request_post, request_get, playlist_html, playlist_
     assert request_post.call_count == 1
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_trimmed_pagination(request_get, playlist_html, playlist_long_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.side_effect = [
@@ -226,7 +226,7 @@ def test_trimmed_pagination(request_get, playlist_html, playlist_long_html):
 
 
 # TODO: Test case not clear to me
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_trimmed_pagination_not_found(
         request_get, playlist_html, playlist_long_html
 ):
@@ -245,7 +245,7 @@ def test_trimmed_pagination_not_found(
 
 
 # test case for playlist with submenus
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_submenu(request_get, playlist_submenu_html):
     url = "https://www.fakeurl.com/playlist?list=whatever"
     request_get.side_effect = [
@@ -260,7 +260,7 @@ def test_playlist_submenu(request_get, playlist_submenu_html):
     assert len(playlist.video_urls) == 12
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_length(request_get, playlist_long_html):
     url = 'https://www.example.com/playlist?list=whatever'
     request_get.return_value = playlist_long_html
@@ -268,7 +268,7 @@ def test_playlist_length(request_get, playlist_long_html):
     assert p.length == 233
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_description(request_get, playlist_long_html):
     url = 'https://www.example.com/playlist?list=whatever'
     request_get.return_value = playlist_long_html
@@ -288,7 +288,7 @@ def test_playlist_description(request_get, playlist_long_html):
     )
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_views(request_get, playlist_long_html):
     url = 'https://www.example.com/playlist?list=whatever'
     request_get.return_value = playlist_long_html
@@ -296,7 +296,7 @@ def test_playlist_views(request_get, playlist_long_html):
     assert p.views == 4809626
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_owner(request_get, playlist_long_html):
     url = 'https://www.example.com/playlist?list=whatever'
     request_get.return_value = playlist_long_html
@@ -304,7 +304,7 @@ def test_playlist_owner(request_get, playlist_long_html):
     assert p.owner == 'ProgrammingKnowledge'
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_owner_id(request_get, playlist_long_html):
     url = 'https://www.example.com/playlist?list=whatever'
     request_get.return_value = playlist_long_html
@@ -312,7 +312,7 @@ def test_playlist_owner_id(request_get, playlist_long_html):
     assert p.owner_id == 'UCs6nmQViDpUw0nuIx9c_WvA'
 
 
-@mock.patch("pytubefix.request.get")
+@mock.patch("pytube.request.get")
 def test_playlist_owner_url(request_get, playlist_long_html):
     url = 'https://www.example.com/playlist?list=whatever'
     request_get.return_value = playlist_long_html

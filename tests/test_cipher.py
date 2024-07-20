@@ -1,7 +1,7 @@
 import pytest
 
-from pytubefix import cipher
-from pytubefix.exceptions import RegexMatchError
+from pytube import cipher
+from pytube.exceptions import RegexMatchError
 
 
 def test_get_initial_function_name_with_no_match_should_error():

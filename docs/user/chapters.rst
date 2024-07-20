@@ -6,7 +6,7 @@ Chapters
 
 Usage::
 
-    >>> from pytubefix import YouTube
+    >>> from pytube import YouTube
     >>> url = 'https://www.youtube.com/watch?v=kRzgCylePjk'
     >>> yt = YouTube(url)
     >>> print(yt.chapters)

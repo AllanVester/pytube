@@ -1,9 +1,9 @@
 from unittest import mock
 
-from pytubefix import Channel
+from pytube import Channel
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_init_with_url(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
     c = Channel('https://www.youtube.com/c/ProgrammingKnowledge/videos')
@@ -15,7 +15,7 @@ def test_init_with_url(request_get, channel_videos_html):
     assert c.about_url == f'{c.channel_url}/about'
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_channel_uri(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
 
@@ -26,7 +26,7 @@ def test_channel_uri(request_get, channel_videos_html):
     assert c.channel_uri == '/channel/UCs6nmQViDpUw0nuIx9c_WvA'
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_channel_name(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
 
@@ -34,7 +34,7 @@ def test_channel_name(request_get, channel_videos_html):
     assert c.channel_name == 'ProgrammingKnowledge'
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_channel_id(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
 
@@ -42,7 +42,7 @@ def test_channel_id(request_get, channel_videos_html):
     assert c.channel_id == 'UCs6nmQViDpUw0nuIx9c_WvA'
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_channel_vanity_url(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
 
@@ -50,25 +50,25 @@ def test_channel_vanity_url(request_get, channel_videos_html):
     assert c.vanity_url == 'http://www.youtube.com/@ProgrammingKnowledge'
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_channel_video_list(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
 
     c = Channel('https://www.youtube.com/c/ProgrammingKnowledge/videos')
-    first_ten = ('[<pytubefix.__main__.YouTube object: videoId=jZGxjmKOH0c>, '
-                 '<pytubefix.__main__.YouTube object: videoId=sZFH6sEbt9E>, '
-                 '<pytubefix.__main__.YouTube object: videoId=WUDivf0NEso>, '
-                 '<pytubefix.__main__.YouTube object: videoId=YbVHEKwlAOY>, '
-                 '<pytubefix.__main__.YouTube object: videoId=ChwsFldra-o>, '
-                 '<pytubefix.__main__.YouTube object: videoId=iECqUHiR5ao>, '
-                 '<pytubefix.__main__.YouTube object: videoId=-9P4CxRWL8c>, '
-                 '<pytubefix.__main__.YouTube object: videoId=vVrIDJ--GOA>, '
-                 '<pytubefix.__main__.YouTube object: videoId=uXP9KatdbBs>, '
-                 '<pytubefix.__main__.YouTube object: videoId=n6fcDbOr7Rg>]')
+    first_ten = ('[<pytube.__main__.YouTube object: videoId=jZGxjmKOH0c>, '
+                 '<pytube.__main__.YouTube object: videoId=sZFH6sEbt9E>, '
+                 '<pytube.__main__.YouTube object: videoId=WUDivf0NEso>, '
+                 '<pytube.__main__.YouTube object: videoId=YbVHEKwlAOY>, '
+                 '<pytube.__main__.YouTube object: videoId=ChwsFldra-o>, '
+                 '<pytube.__main__.YouTube object: videoId=iECqUHiR5ao>, '
+                 '<pytube.__main__.YouTube object: videoId=-9P4CxRWL8c>, '
+                 '<pytube.__main__.YouTube object: videoId=vVrIDJ--GOA>, '
+                 '<pytube.__main__.YouTube object: videoId=uXP9KatdbBs>, '
+                 '<pytube.__main__.YouTube object: videoId=n6fcDbOr7Rg>]')
     assert str(c.videos[:10]) == first_ten
 
 
-@mock.patch('pytubefix.request.get')
+@mock.patch('pytube.request.get')
 def test_videos_html(request_get, channel_videos_html):
     request_get.return_value = channel_videos_html
 

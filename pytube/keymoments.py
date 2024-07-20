@@ -12,7 +12,7 @@ class KeyMomentsThumbnail:
         self.url = url
 
     def __repr__(self):
-        return f"<pytubefix.keymoments.KeyMomentThumbnail: width={self.width}, height={self.height}, url={self.url}>"
+        return f"<pytube.keymoments.KeyMomentThumbnail: width={self.width}, height={self.height}, url={self.url}>"
 
 
 class KeyMoment:

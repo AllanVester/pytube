@@ -20,18 +20,18 @@ import sys
 import datetime as dt
 import subprocess  # nosec
 from typing import List, Optional
-import pytubefix.exceptions as exceptions
-from pytubefix import __version__
-from pytubefix import CaptionQuery, Playlist, Stream
-from pytubefix.helpers import safe_filename, setup_logger
-from pytubefix import YouTube
+import pytube.exceptions as exceptions
+from pytube import __version__
+from pytube import CaptionQuery, Playlist, Stream
+from pytube.helpers import safe_filename, setup_logger
+from pytube import YouTube
 logger = logging.getLogger(__name__)
 
 
 def main():
     # TODO: Refactor cli.py to OOP
     # temporary fix
-    from pytubefix import YouTube
+    from pytube import YouTube
     # noinspection PyTypeChecker
     parser = argparse.ArgumentParser(description=main.__doc__)
     args = _parse_args(parser)

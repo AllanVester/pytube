@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS: [Your Operating System and Version]
  - Python Version [x.y.z]
- - Pytubefix Version [x.y.z]
+ - Pytube Version [x.y.z]
 
 **Additional context**
 Add any other context about the problem here.

@@ -245,7 +245,7 @@ class UnknownVideoError(VideoUnavailable):
         logger.warning(f'Developer Message: {self.developer_message}')
         logger.warning(
             'Please open an issue at '
-            'https://github.com/JuanBindez/pytubefix/issues '
+            'https://github.com/JuanBindez/pytube/issues '
             'and provide the above log output.'
         )
 

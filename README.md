@@ -1,10 +1,10 @@
-# pytubefix
+# pytube
 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/pytubefix)
-![PyPI - License](https://img.shields.io/pypi/l/pytubefix)
-![Read the Docs](https://img.shields.io/readthedocs/pytubefix)
-![GitHub Tag](https://img.shields.io/github/v/tag/JuanBindez/pytubefix?include_prereleases)
-<a href="https://pypi.org/project/pytubefix/"><img src="https://img.shields.io/pypi/v/pytubefix" /></a>
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pytube)
+![PyPI - License](https://img.shields.io/pypi/l/pytube)
+![Read the Docs](https://img.shields.io/readthedocs/pytube)
+![GitHub Tag](https://img.shields.io/github/v/tag/JuanBindez/pytube?include_prereleases)
+<a href="https://pypi.org/project/pytube/"><img src="https://img.shields.io/pypi/v/pytube" /></a>
 
 
 ## Python3 library for downloading YouTube Videos.
@@ -12,7 +12,7 @@
 ----------
 ## install
 
-    pip install pytubefix
+    pip install pytube
 
 
 ## Quickstart
@@ -21,8 +21,8 @@
 
 ```python
 
-from pytubefix import YouTube
-from pytubefix.cli import on_progress
+from pytube import YouTube
+from pytube.cli import on_progress
  
 url = "url"
  
@@ -37,8 +37,8 @@ ys.download()
 
 ```python
 
-from pytubefix import YouTube
-from pytubefix.cli import on_progress
+from pytube import YouTube
+from pytube.cli import on_progress
  
 url = "url"
  
@@ -53,8 +53,8 @@ ys.download(mp3=True) # pass the parameter mp3=True to save in .mp3
 
 ```python
 
-from pytubefix import Playlist
-from pytubefix.cli import on_progress
+from pytube import Playlist
+from pytube.cli import on_progress
  
 url = "url"
 
@@ -70,8 +70,8 @@ for video in pl.videos:
 
 ```python
 
-from pytubefix import YouTube
-from pytubefix.cli import on_progress
+from pytube import YouTube
+from pytube.cli import on_progress
  
 url = "url"
 
@@ -89,7 +89,7 @@ ys.download(mp3=True) # you will only get the request to authenticate once you d
 
 ```python
 
-from pytubefix import YouTube
+from pytube import YouTube
 
 yt = YouTube('http://youtube.com/watch?v=2lAe1cqCOXo')
 subtitles = yt.captions
@@ -102,7 +102,7 @@ print(subtitles)
 
 ```python
 
-from pytubefix import YouTube
+from pytube import YouTube
  
 
 yt = YouTube('http://youtube.com/watch?v=2lAe1cqCOXo')
@@ -116,7 +116,7 @@ print(caption.generate_srt_captions())
 
 ```python
 
-from pytubefix import YouTube
+from pytube import YouTube
  
 
 yt = YouTube('http://youtube.com/watch?v=2lAe1cqCOXo')
@@ -132,7 +132,7 @@ caption.save_captions("captions.txt")
 
 ```python
 
-from pytubefix import Channel
+from pytube import Channel
 
 c = Channel("https://www.youtube.com/@ProgrammingKnowledge/featured")
 
@@ -145,7 +145,7 @@ print(f'Channel name: {c.channel_name}')
 
 ```python
 
-from pytubefix import Channel
+from pytube import Channel
 
 c = Channel("https://www.youtube.com/@ProgrammingKnowledge")
 

@@ -3,7 +3,7 @@ requires = ["setuptools>=67.4.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pytubefix"
+name = "pytube"
 version = "6.3.4"
 authors = [
   { name="Juan Bindez", email="juanbindez780@gmail.com" },
@@ -36,15 +36,15 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-"Homepage" = "https://github.com/juanbindez/pytubefix"
-"Bug Reports" = "https://github.com/juanbindez/pytubefix/issues"
-"Read the Docs" = "http://pytubefix.readthedocs.io/"
+"Homepage" = "https://github.com/juanbindez/pytube"
+"Bug Reports" = "https://github.com/juanbindez/pytube/issues"
+"Read the Docs" = "http://pytube.readthedocs.io/"
 
 [project.scripts]
-pytubefix = "pytubefix.cli:main"
+pytube = "pytube.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["pytubefix*"]
+include = ["pytube*"]
 
 [tool.setuptools]
 license-files = ["LICENSE"]

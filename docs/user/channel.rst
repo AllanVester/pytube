@@ -3,15 +3,15 @@
 Using Channels
 ==============
 
-This guide will walk you through the basics of working with pytubefix Channels.
+This guide will walk you through the basics of working with pytube Channels.
 
 Creating a Channel
 ------------------
 
-Using pytubefix to interact with channels is similar to interacting with playlists. 
+Using pytube to interact with channels is similar to interacting with playlists. 
 Begin by importing the Channel class::
 
-    >>> from pytubefix import Channel
+    >>> from pytube import Channel
 
 Now let's create a channel object. You can do this by initializing the object with a channel URL::
 
@@ -21,12 +21,12 @@ Or you can create one from a link to the channel's video page::
 
     >>> c = Channel('https://www.youtube.com/@ProgrammingKnowledge/videos')
 
-Now, we have a :class:`Channel <pytubefix.Channel>` object called ``c`` that we can do some work with.
+Now, we have a :class:`Channel <pytube.Channel>` object called ``c`` that we can do some work with.
 
 
 get the channel name::
 
-    from pytubefix import Channel
+    from pytube import Channel
     
     c = Channel("https://www.youtube.com/@ProgrammingKnowledge/featured")
     
@@ -40,7 +40,7 @@ Fundamentally, a Channel object is just a container for YouTube objects.
 
 If, for example, we wanted to download all of the videos created by a channel, we would do the following::
 
-    from pytubefix import Channel
+    from pytube import Channel
 
     c = Channel("https://www.youtube.com/@ProgrammingKnowledge")
     

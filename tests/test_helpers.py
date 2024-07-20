@@ -5,10 +5,10 @@ import os
 import pytest
 from unittest import mock
 
-from pytubefix import helpers
-from pytubefix.exceptions import RegexMatchError
-from pytubefix.helpers import cache, create_mock_html_json, deprecated, setup_logger
-from pytubefix.helpers import target_directory, uniqueify
+from pytube import helpers
+from pytube.exceptions import RegexMatchError
+from pytube.helpers import cache, create_mock_html_json, deprecated, setup_logger
+from pytube.helpers import target_directory, uniqueify
 
 
 def test_regex_search_no_match():
@@ -79,33 +79,33 @@ def test_target_directory_with_no_path(_, makedirs):  # noqa: PT019
     makedirs.assert_called()
 
 
-@mock.patch("pytubefix.helpers.logging")
+@mock.patch("pytube.helpers.logging")
 def test_setup_logger(logging):
     # Given
     logger = logging.getLogger.return_value
     # When
     setup_logger(20)
     # Then
-    logging.getLogger.assert_called_with("pytubefix")
+    logging.getLogger.assert_called_with("pytube")
     logger.addHandler.assert_called()
     logger.setLevel.assert_called_with(20)
 
 
 @mock.patch('builtins.open', new_callable=mock.mock_open)
-@mock.patch('pytubefix.request.urlopen')
+@mock.patch('pytube.request.urlopen')
 def test_create_mock_html_json(mock_url_open, mock_open):
     video_id = '2lAe1cqCOXo'
     gzip_html_filename = 'yt-video-%s-html.json.gz' % video_id
 
-    # Get the pytubefix directory in order to navigate to /tests/mocks
-    pytubefix_dir_path = os.path.abspath(
+    # Get the pytube directory in order to navigate to /tests/mocks
+    pytube_dir_path = os.path.abspath(
         os.path.join(
             os.path.dirname(__file__),
             os.path.pardir
         )
     )
-    pytubefix_mocks_path = os.path.join(pytubefix_dir_path, 'tests', 'mocks')
-    gzip_html_filepath = os.path.join(pytubefix_mocks_path, gzip_html_filename)
+    pytube_mocks_path = os.path.join(pytube_dir_path, 'tests', 'mocks')
+    gzip_html_filepath = os.path.join(pytube_mocks_path, gzip_html_filename)
 
     # Mock the responses to YouTube
     mock_url_open_object = mock.Mock()

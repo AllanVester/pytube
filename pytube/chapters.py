@@ -12,7 +12,7 @@ class ChapterThumbnail:
         self.url = url
 
     def __repr__(self):
-        return f'<pytubefix.chapters.ChapterThumbnail: width={self.width}, height={self.height}, url={self.url}>'
+        return f'<pytube.chapters.ChapterThumbnail: width={self.width}, height={self.height}, url={self.url}>'
 
 
 class Chapter:

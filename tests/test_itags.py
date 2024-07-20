@@ -1,4 +1,4 @@
-from pytubefix import itags
+from pytube import itags
 
 
 def test_get_format_profile():

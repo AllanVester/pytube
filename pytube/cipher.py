@@ -13,8 +13,8 @@ functions" (2) sends them to be interpreted by jsinterp.py
 import logging
 import re
 
-from pytubefix.exceptions import RegexMatchError
-from pytubefix.jsinterp import JSInterpreter
+from pytube.exceptions import RegexMatchError
+from pytube.jsinterp import JSInterpreter
 
 logger = logging.getLogger(__name__)
 

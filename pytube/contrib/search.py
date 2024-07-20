@@ -4,9 +4,9 @@ import logging
 from typing import List
 
 # Local imports
-from pytubefix import YouTube, Channel, Playlist
-from pytubefix.helpers import deprecated
-from pytubefix.innertube import InnerTube
+from pytube import YouTube, Channel, Playlist
+from pytube.helpers import deprecated
+from pytube.innertube import InnerTube
 
 logger = logging.getLogger(__name__)
 

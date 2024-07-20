@@ -7,11 +7,11 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 
-from pytubefix.cipher import Cipher
-from pytubefix.exceptions import HTMLParseError, LiveStreamError, RegexMatchError
-from pytubefix.helpers import regex_search
-from pytubefix.metadata import YouTubeMetadata
-from pytubefix.parser import parse_for_object, parse_for_all_objects
+from pytube.cipher import Cipher
+from pytube.exceptions import HTMLParseError, LiveStreamError, RegexMatchError
+from pytube.helpers import regex_search
+from pytube.metadata import YouTubeMetadata
+from pytube.parser import parse_for_object, parse_for_all_objects
 
 logger = logging.getLogger(__name__)
 

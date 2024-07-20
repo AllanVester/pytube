@@ -4,8 +4,8 @@ import json
 import logging
 from typing import Dict, List, Optional, Tuple, Iterable, Any
 
-from pytubefix import extract, YouTube, Playlist, request
-from pytubefix.helpers import cache, uniqueify, DeferredGeneratorList
+from pytube import extract, YouTube, Playlist, request
+from pytube.helpers import cache, uniqueify, DeferredGeneratorList
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +46,7 @@ class Channel(Playlist):
         self._about_html = None
 
     def __repr__(self) -> str:
-        return f'<pytubefix.contrib.Channel object: channelUri={self.channel_uri}>'
+        return f'<pytube.contrib.Channel object: channelUri={self.channel_uri}>'
 
     @property
     def channel_name(self):

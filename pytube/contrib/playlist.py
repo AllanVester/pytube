@@ -5,8 +5,8 @@ from collections.abc import Sequence
 from datetime import date, datetime
 from typing import Dict, Iterable, List, Optional, Tuple, Union, Any
 
-from pytubefix import extract, request, YouTube
-from pytubefix.helpers import cache, DeferredGeneratorList, install_proxy, uniqueify
+from pytube import extract, request, YouTube
+from pytube.helpers import cache, DeferredGeneratorList, install_proxy, uniqueify
 
 logger = logging.getLogger(__name__)
 
@@ -318,7 +318,7 @@ class Playlist(Sequence):
         return len(self.video_urls)
 
     def __repr__(self) -> str:
-        return f'<pytubefix.contrib.Playlist object: playlistId={self.playlist_id}>'
+        return f'<pytube.contrib.Playlist object: playlistId={self.playlist_id}>'
 
     @property
     @cache

@@ -9,8 +9,8 @@ from urllib import parse
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
-from pytubefix.exceptions import RegexMatchError, MaxRetriesExceeded
-from pytubefix.helpers import regex_search
+from pytube.exceptions import RegexMatchError, MaxRetriesExceeded
+from pytube.helpers import regex_search
 
 logger = logging.getLogger(__name__)
 default_range_size = 9437184  # 9MB

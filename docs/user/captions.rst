@@ -3,10 +3,10 @@
 Subtitle/Caption Tracks
 =======================
 
-pytubefix exposes the caption tracks in much the same way as querying the media
+pytube exposes the caption tracks in much the same way as querying the media
 streams. Let's begin by switching to a video that contains them::
 
-    from pytubefix import YouTube
+    from pytube import YouTube
 
     yt = YouTube('http://youtube.com/watch?v=2lAe1cqCOXo')
     subtitles = yt.captions
@@ -16,7 +16,7 @@ streams. Let's begin by switching to a video that contains them::
 
 Now you can save subtitles to a txt file::
 
-    from pytubefix import YouTube
+    from pytube import YouTube
 
     yt = YouTube('http://youtube.com/watch?v=2lAe1cqCOXo')
     

@@ -458,7 +458,7 @@ class JSInterpreter:
 
     def _named_object(self, namespace, obj):
         self.__named_object_counter += 1
-        name = f'__pytubefix_jsinterp_obj{self.__named_object_counter}'
+        name = f'__pytube_jsinterp_obj{self.__named_object_counter}'
         if callable(obj) and not isinstance(obj, function_with_repr):
             obj = function_with_repr(obj, f'F<{self.__named_object_counter}>')
         namespace[name] = obj

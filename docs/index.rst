@@ -1,28 +1,28 @@
-.. pytubefix documentation master file,
+.. pytube documentation master file,
 
-pytubefix
+pytube
 ======
 Release v\ |version|. (:ref:`Installation<install>`)
 
 
-.. image:: https://img.shields.io/pypi/v/pytubefix.svg
+.. image:: https://img.shields.io/pypi/v/pytube.svg
   :alt: Pypi
-  :target: https://pypi.python.org/pypi/pytubefix/
+  :target: https://pypi.python.org/pypi/pytube/
 
-.. image:: https://img.shields.io/pypi/pyversions/pytubefix.svg
+.. image:: https://img.shields.io/pypi/pyversions/pytube.svg
   :alt: Python Versions
-  :target: https://pypi.python.org/pypi/pytubefix/
+  :target: https://pypi.python.org/pypi/pytube/
 
 
-**pytubefix** is a lightweight, Pythonic, dependency-free, library (and
+**pytube** is a lightweight, Pythonic, dependency-free, library (and
 command-line utility) for downloading YouTube Videos.
 
 -------------------
 
 **Behold, a perfect balance of simplicity versus flexibility**::
 
-    from pytubefix import YouTube
-    from pytubefix.cli import on_progress
+    from pytube import YouTube
+    from pytube.cli import on_progress
      
     url = input("URL >")
      
@@ -48,7 +48,7 @@ The User Guide
 --------------
 This part of the documentation begins with some background information about
 the project, then focuses on step-by-step instructions for getting the most out
-of pytubefix.
+of pytube.
 
 .. toctree::
    :maxdepth: 2

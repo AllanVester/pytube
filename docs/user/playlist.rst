@@ -3,15 +3,15 @@
 Using Playlists
 ===============
 
-This guide will walk you through the basics of working with pytubefix Playlists.
+This guide will walk you through the basics of working with pytube Playlists.
 
 Creating a Playlist
 -------------------
 
-Using pytubefix to interact with playlists is very simple. 
+Using pytube to interact with playlists is very simple. 
 Begin by importing the Playlist class::
 
-    >>> from pytubefix import Playlist
+    >>> from pytube import Playlist
 
 Now let's create a playlist object. You can do this by initializing the object with a playlist URL::
 
@@ -21,7 +21,7 @@ Or you can create one from a video link in a playlist::
 
     >>> p = Playlist('https://www.youtube.com/watch?v=41qgdwd3zAg&list=PLS1QulWo1RIaJECMeUT4LFwJ-ghgoSH6n')
 
-Now, we have a :class:`Playlist <pytubefix.Playlist>` object called ``p`` that we can do some work with.
+Now, we have a :class:`Playlist <pytube.Playlist>` object called ``p`` that we can do some work with.
 
 Interacting with a playlist
 ---------------------------
@@ -30,8 +30,8 @@ Fundamentally, a Playlist object is just a container for YouTube objects.
 
 If, for example, we wanted to download all of the videos in a playlist, we would do the following::
 
-    from pytubefix import Playlist
-    from pytubefix.cli import on_progress
+    from pytube import Playlist
+    from pytube.cli import on_progress
      
     url = input("url here >")
     
@@ -43,8 +43,8 @@ If, for example, we wanted to download all of the videos in a playlist, we would
 
 Or if we wanted to download all of the audios in a playlist, we would do the following::
 
-    from pytubefix import Playlist
-    from pytubefix.cli import on_progress
+    from pytube import Playlist
+    from pytube.cli import on_progress
      
     url = input("url here >")
     

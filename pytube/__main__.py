@@ -22,7 +22,7 @@
 
 
 """
-This module implements the core developer interface for pytubefix.
+This module implements the core developer interface for pytube.
 
 The problem domain of the :class:`YouTube <YouTube> class focuses almost
 exclusively on the developer interface. Pytubefix offloads the heavy lifting to
@@ -33,20 +33,20 @@ smaller peripheral modules and functions.
 import logging
 from typing import Any, Callable, Dict, List, Optional
 
-import pytubefix
-import pytubefix.exceptions as exceptions
-from pytubefix import extract, request
-from pytubefix import Stream, StreamQuery
-from pytubefix.helpers import install_proxy
-from pytubefix.innertube import InnerTube
-from pytubefix.metadata import YouTubeMetadata
-from pytubefix.monostate import Monostate
+import pytube
+import pytube.exceptions as exceptions
+from pytube import extract, request
+from pytube import Stream, StreamQuery
+from pytube.helpers import install_proxy
+from pytube.innertube import InnerTube
+from pytube.metadata import YouTubeMetadata
+from pytube.monostate import Monostate
 
 logger = logging.getLogger(__name__)
 
 
 class YouTube:
-    """Core developer interface for pytubefix."""
+    """Core developer interface for pytube."""
 
     def __init__(
             self,
@@ -134,7 +134,7 @@ class YouTube:
         self.allow_oauth_cache = allow_oauth_cache
 
     def __repr__(self):
-        return f'<pytubefix.__main__.YouTube object: videoId={self.video_id}>'
+        return f'<pytube.__main__.YouTube object: videoId={self.video_id}>'
 
     def __eq__(self, o: object) -> bool:
         # Compare types and urls, if they're same return true, else return false.
@@ -180,12 +180,12 @@ class YouTube:
 
         # If the js_url doesn't match the cached url, fetch the new js and update
         #  the cache; otherwise, load the cache.
-        if pytubefix.__js_url__ != self.js_url:
+        if pytube.__js_url__ != self.js_url:
             self._js = request.get(self.js_url)
-            pytubefix.__js__ = self._js
-            pytubefix.__js_url__ = self.js_url
+            pytube.__js__ = self._js
+            pytube.__js_url__ = self.js_url
         else:
-            self._js = pytubefix.__js__
+            self._js = pytube.__js__
 
         return self._js
 
@@ -251,8 +251,8 @@ class YouTube:
             # To force an update to the js file, we clear the cache and retry
             self._js = None
             self._js_url = None
-            pytubefix.__js__ = None
-            pytubefix.__js_url__ = None
+            pytube.__js__ = None
+            pytube.__js_url__ = None
             extract.apply_signature(stream_manifest, self.vid_info, self.js)
 
         # build instances of :class:`Stream <Stream>`
@@ -396,7 +396,7 @@ class YouTube:
         self._vid_info = innertube_response
 
     @property
-    def caption_tracks(self) -> List[pytubefix.Caption]:
+    def caption_tracks(self) -> List[pytube.Caption]:
         """Get a list of :class:`Caption <Caption>`.
 
         :rtype: List[Caption]
@@ -409,18 +409,18 @@ class YouTube:
             .get("playerCaptionsTracklistRenderer", {})
             .get("captionTracks", [])
         )
-        return [pytubefix.Caption(track) for track in raw_tracks]
+        return [pytube.Caption(track) for track in raw_tracks]
 
     @property
-    def captions(self) -> pytubefix.CaptionQuery:
+    def captions(self) -> pytube.CaptionQuery:
         """Interface to query caption tracks.
 
         :rtype: :class:`CaptionQuery <CaptionQuery>`.
         """
-        return pytubefix.CaptionQuery(self.caption_tracks)
+        return pytube.CaptionQuery(self.caption_tracks)
 
     @property
-    def chapters(self) -> List[pytubefix.Chapter]:
+    def chapters(self) -> List[pytube.Chapter]:
         """Get a list of :class:`Chapter <Chapter>`.
 
         :rtype: List[Chapter]
@@ -432,7 +432,7 @@ class YouTube:
         except (KeyError, IndexError):
             return []
 
-        result: List[pytubefix.Chapter] = []
+        result: List[pytube.Chapter] = []
 
         for i, chapter_data in enumerate(chapters_data):
             chapter_start = int(
@@ -446,12 +446,12 @@ class YouTube:
                     chapters_data[i + 1]['chapterRenderer']['timeRangeStartMillis'] / 1000
                 )
 
-            result.append(pytubefix.Chapter(chapter_data, chapter_end - chapter_start))
+            result.append(pytube.Chapter(chapter_data, chapter_end - chapter_start))
 
         return result
     
     @property
-    def key_moments(self) -> List[pytubefix.KeyMoment]:
+    def key_moments(self) -> List[pytube.KeyMoment]:
         """Get a list of :class:`KeyMoment <KeyMoment>`.
 
         :rtype: List[KeyMoment]
@@ -470,7 +470,7 @@ class YouTube:
         except (KeyError, IndexError):
             return []
 
-        result: List[pytubefix.KeyMoment] = []
+        result: List[pytube.KeyMoment] = []
 
         for i, key_moment_data in enumerate(key_moments_data):
             key_moment_start = int(
@@ -484,7 +484,7 @@ class YouTube:
                     int(key_moments_data[i + 1]['startMillis']) / 1000
                 )
 
-            result.append(pytubefix.KeyMoment(key_moment_data, key_moment_end - key_moment_start))
+            result.append(pytube.KeyMoment(key_moment_data, key_moment_end - key_moment_start))
 
         return result
     
@@ -599,7 +599,7 @@ class YouTube:
             raise exceptions.PytubeFixError(
                 (
                     f'Exception while accessing title of {self.watch_url}. '
-                    'Please file a bug report at https://github.com/JuanBindez/pytubefix'
+                    'Please file a bug report at https://github.com/JuanBindez/pytube'
                 )
             ) from e
 

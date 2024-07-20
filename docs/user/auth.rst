@@ -5,8 +5,8 @@ Add Authentication
 
 **Some videos have age restrictions, so you need to authenticate to download, pass the parameters use_oauth=True and allow_oauth_cache=True**::
 
-        from pytubefix import YouTube
-        from pytubefix.cli import on_progress
+        from pytube import YouTube
+        from pytube.cli import on_progress
          
         url = input("url >")
          

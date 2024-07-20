@@ -5,7 +5,7 @@ Extracting key moments
 
 **Test**::
 
-        from pytubefix import YouTube
+        from pytube import YouTube
 
         yt = YouTube("https://www.youtube.com/watch?v=-xNR_1WJQ-E")
         print(yt.key_moments)
@@ -22,7 +22,7 @@ Output::
 
 **Support for both key moments**::
 
-        from pytubefix import YouTube
+        from pytube import YouTube
 
         yt = YouTube("https://www.youtube.com/watch?v=rSKMYc1CQHE")
         print(yt.replayed_heatmap)

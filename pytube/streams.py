@@ -17,10 +17,10 @@ from urllib.error import HTTPError
 from urllib.parse import parse_qs
 from pathlib import Path
 
-from pytubefix import extract, request
-from pytubefix.helpers import safe_filename, target_directory
-from pytubefix.itags import get_format_profile
-from pytubefix.monostate import Monostate
+from pytube import extract, request
+from pytube.helpers import safe_filename, target_directory
+from pytube.itags import get_format_profile
+from pytube.monostate import Monostate
 
 logger = logging.getLogger(__name__)
 

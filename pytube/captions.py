@@ -6,8 +6,8 @@ import xml.etree.ElementTree as ElementTree
 from html import unescape
 from typing import Dict, Optional
 
-from pytubefix import request
-from pytubefix.helpers import safe_filename, target_directory
+from pytube import request
+from pytube.helpers import safe_filename, target_directory
 
 
 class Caption:
@@ -66,7 +66,7 @@ class Caption:
     def save_captions(self, filename: str):
         """Generate and save "SubRip Subtitle" captions to a text file.
 
-        Takes the xml captions from :meth:`~pytubefix.Caption.xml_captions` and
+        Takes the xml captions from :meth:`~pytube.Caption.xml_captions` and
         recompiles them into the "SubRip Subtitle" format and saves it to a text file.
 
         :param filename: The name of the file to save the captions.

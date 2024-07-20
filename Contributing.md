@@ -2,9 +2,9 @@
 
 #### **Did you find a bug?**
 
-* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/pytubefix/pytubefix/issues).
+* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/pytube/pytube/issues).
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/pytubefix/pytubefix/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **[MRE code sample](https://stackoverflow.com/help/minimal-reproducible-example)** or an **executable test case** demonstrating the expected behavior that is not occurring.
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/pytube/pytube/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **[MRE code sample](https://stackoverflow.com/help/minimal-reproducible-example)** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
 * For more detailed information on submitting a bug report and creating an issue, visit `TODO`
 
@@ -28,11 +28,11 @@ Changes that are cosmetic in nature and do not add anything substantial to the s
 
 #### **Do you have questions about the source code?**
 
-* Ask any question about how to use PyTubefix [in StackOverflow](https://stackoverflow.com/questions/tagged/pytubefix)
+* Ask any question about how to use PyTubefix [in StackOverflow](https://stackoverflow.com/questions/tagged/pytube)
 
 #### **Do you want to contribute to the PyTubefix documentation?**
 
-* Consider submitting a patch to the [docs](https://github.com/pytubefix/pytubefix/tree/master/docs)
+* Consider submitting a patch to the [docs](https://github.com/pytube/pytube/tree/master/docs)
 
 PyTubefix is a volunteer effort. We encourage you to pitch in and [join the team](https://contributors.rubyonrails.org)!
 
