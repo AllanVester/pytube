@@ -1,9 +1,9 @@
 #!/bin/bash
 
 git add .
-git commit -m '6.3.4'
+git commit -m 'pytube 6.4.2 -> #120 #121'
 git push -u origin main
-git tag v6.3.4
+git tag v6.4.2
 git push --tag
 make clean
 make upload
