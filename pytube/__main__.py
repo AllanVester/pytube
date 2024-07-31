@@ -250,14 +250,14 @@ class YouTube:
         # If the cached js doesn't work, try fetching a new js file
         # https://github.com/pytube/pytube/issues/1054
         try:
-            extract.apply_signature(stream_manifest, self.vid_info, self.js)
+            extract.apply_signature(stream_manifest, self.vid_info, self.js, self.js_url)
         except exceptions.ExtractError:
             # To force an update to the js file, we clear the cache and retry
             self._js = None
             self._js_url = None
             pytube.__js__ = None
             pytube.__js_url__ = None
-            extract.apply_signature(stream_manifest, self.vid_info, self.js)
+            extract.apply_signature(stream_manifest, self.vid_info, self.js, self.js_url)
 
         # build instances of :class:`Stream <Stream>`
         # Initialize stream objects
