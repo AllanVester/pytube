@@ -20,9 +20,9 @@ logger = logging.getLogger(__name__)
 
 
 class Cipher:
-    def __init__(self, js: str):
-        self.signature_function_name = get_initial_function_name(js)
-        self.throttling_function_name = get_throttling_function_name(js)
+    def __init__(self, js: str, js_url: str):
+        self.signature_function_name = get_initial_function_name(js, js_url)
+        self.throttling_function_name = get_throttling_function_name(js, js_url)
 
         self.calculated_n = None
 
