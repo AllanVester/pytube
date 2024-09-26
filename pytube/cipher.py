@@ -109,12 +109,18 @@ def get_throttling_function_name(js: str, js_url: str) -> str:
         # In the above case, `iha` is the relevant function name
         # r'a\.[a-zA-Z]\s*&&\s*\([a-z]\s*=\s*a\.get\("n"\)\)\s*&&\s*'
         # r'\([a-z]\s*=\s*([a-zA-Z0-9$]+)(\[\d+\])?\([a-z]\)',
-
+    
+        # New pattern added on July 9, 2024
+        # https://github.com/yt-dlp/yt-dlp/pull/10390/files
+        # In this example we can find the name of the function at index "0" of "IRa"
+        # a.D && (b = String.fromCharCode(110), c = a.get(b)) && (c = IRa[0](c), a.set(b,c), IRa.length || Ima(""))
+        # r'(?:\.get\(\"n\"\)\)&&\(b=|b=String\.fromCharCode\(\d+\),c=a\.get\(b\)\)&&\(c=)([a-zA-Z0-9$]+)(?:\[('r'\d+)\])?\([a-zA-Z0-9]\)'
+    
         # New pattern added on July 23, 2024
         # https://github.com/yt-dlp/yt-dlp/pull/10542
         # a.D && (b = "nn"[+a.D], c = a.get(b)) && (c = rDa[0](c), a.set(b,c), rDa.length || rma(""))
         # r'(?:\.get\("n"\)\)&&\(b=|(?:b=String\.fromCharCode\(110\)|([a-zA-Z0-9$.]+)&&\(b="nn"\[\+\1\]),c=a\.get\(b\)\)&&\(c=)(?P<nfunc>[a-zA-Z0-9$]+)(?:\[(?P<idx>\d+)\])?\([a-zA-Z0-9]\)'
-
+    
         # New pattern used in player "20dfca59" on July 29, 2024
         # a.D && (PL(a), b = a.j.n || null) && (b = oDa[0](b), a.set("n", b), oDa.length || rma(""))
         # Regex logic changed based on old players, n_func can easily be found after ".length ||",
