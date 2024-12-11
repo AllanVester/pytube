@@ -409,11 +409,7 @@ class Stream:
 
         if filename:
             translation_table = file_system_verify(file_system)
-
-            if not ('audio' in self.mime_type and 'video' not in self.mime_type):
-                filename = filename.translate(translation_table)
-            else:
-                filename = filename.translate(translation_table)
+            filename = filename.translate(translation_table)
 
         if filename_prefix:
             filename = f"{filename_prefix}{filename}"
